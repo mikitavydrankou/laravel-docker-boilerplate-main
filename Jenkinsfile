@@ -4,7 +4,11 @@ pipeline {
         
         stage("Verify tooling") {
             steps {
-                sh 'docker ps'
+                sh '''
+                    docker info
+                    docker version
+                    docker compose version
+                '''
             }   
         }
         stage("Clear all running docker containers") {
