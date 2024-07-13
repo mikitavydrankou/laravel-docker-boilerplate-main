@@ -1,14 +1,17 @@
 pipeline {
     agent any
     stages {
+        
         stage("Verify tooling") {
             steps {
-                sh '''
-                    docker info
-                    docker version
-                    docker compose version
-                '''
-            }
+                // sh '''
+                //     docker info
+                //     docker version
+                //     docker compose version
+                // '''
+                sh 'echo $PATH'
+                sh 'docker info'
+            }   
         }
         stage("Clear all running docker containers") {
             steps {
